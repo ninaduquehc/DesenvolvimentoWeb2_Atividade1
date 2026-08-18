@@ -1,4 +1,4 @@
-// Footer
+// HEADER
 function criarHeader() {
     const header = document.createElement("header");
 
@@ -52,7 +52,7 @@ function criarHeader() {
 }
 
 
-// Footer
+// FOOTER
 function criarFooter() {
     const footer = document.createElement("footer");
 
@@ -72,9 +72,7 @@ function criarFooter() {
 }
 
 
-// ===============================
 // MENU MOBILE
-// ===============================
 
 function configurarMenu() {
 
@@ -91,9 +89,7 @@ function configurarMenu() {
 }
 
 
-// ===============================
 // DESTACAR PÁGINA ATUAL
-// ===============================
 
 function destacarPaginaAtual() {
 
@@ -113,9 +109,7 @@ function destacarPaginaAtual() {
 }
 
 
-// ===============================
 // INICIALIZAÇÃO DO LAYOUT
-// ===============================
 
 document.addEventListener("DOMContentLoaded", function () {
 
