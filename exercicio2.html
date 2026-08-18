@@ -1,11 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Exercício 2 - Folha de Pagamento</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <main>
+        <h1>Exercício 2 - Folha de Pagamento</h1>
+
+        <label for="salarioMinimo">Salário mínimo atual:</label>
+        <input type="number" id="salarioMinimo" step="0.01">
+        <br><br>
+
+        <label for="codigoFuncionario">Código do funcionário:</label>
+        <input type="text" id="codigoFuncionario">
+        <br><br>
+
+        <label for="horasTrabalhadas">Horas trabalhadas no mês:</label>
+        <input type="number" id="horasTrabalhadas">
+        <br><br>
+
+        <label for="categoria">Categoria (F-Operacional, G-Gerente):</label>
+        <input type="text" id="categoria" maxlength="1">
+        <br><br>
+
+        <label for="turno">Turno (M-Matutino, V-Vespertino, N-Noturno):</label>
+        <input type="text" id="turno" maxlength="1">
+        <br><br>
+
+        <label for="desempenho">Avaliação de desempenho (0 a 10):</label>
+        <input type="number" id="desempenho" step="0.1">
+        <br><br>
+
+        <button id="calcular">Calcular</button>
+        <p id="resultado"></p>
+
+        <button id="gerarRelatorio">Gerar Relatório</button>
+        <div id="relatorio"></div>
+    </main>
+
     <script src="js/layout.js"></script>
     <script src="js/exercicio2.js"></script>
 </body>
