@@ -30,15 +30,10 @@ botao.addEventListener("click", function () {
         return;
     }
 
-    // ################################################################
-    // ##################### NOVO: VALIDAÇÃO DA NOTA #####################
-    // ################################################################
-    // Enquanto a nota for menor que 0, OU maior que 10, OU não for um
-    // número válido (campo vazio, texto, etc), pede pra digitar de novo.
+
     while (desempenho < 0 || desempenho > 10 || isNaN(desempenho)) {
         desempenho = Number(prompt("Nota inválida. Digite um valor entre 0 e 10:"));
     }
-    // ################################################################
 
     let percentualHora;
     let categoriaValida = false;
@@ -114,10 +109,6 @@ botao.addEventListener("click", function () {
 
 });
 
-
-// ####################################################################
-// ##################### NOVO: RELATÓRIO FINAL #######################
-// ####################################################################
 botaoRelatorio.addEventListener("click", function () {
 
     if (funcionarios.length === 0) {
@@ -126,32 +117,20 @@ botaoRelatorio.addEventListener("click", function () {
     }
 
     let totalFuncionarios = funcionarios.length;
-
-    // ---- Acumuladores gerais ----
     let somaSalarioGeral = 0;
-
-    // ---- Acumuladores por categoria (F e G) ----
     let somaSalarioF = 0;
     let contagemF = 0;
     let somaSalarioG = 0;
     let contagemG = 0;
-
-    // ---- Maior e menor salário ----
     let maiorSalario = funcionarios[0];
     let menorSalario = funcionarios[0];
-
-    // ---- Contadores por faixa de bônus ----
     let qtdBonus10 = 0;
     let qtdBonus5 = 0;
     let qtdBonus2 = 0;
     let qtdBonus0 = 0;
 
     funcionarios.forEach(function (funcionario) {
-
-        // soma geral, pra tirar a média geral depois
         somaSalarioGeral += funcionario.salarioFinal;
-
-        // separa a soma e a contagem de acordo com a categoria do funcionário
         if (funcionario.categoria === "F") {
             somaSalarioF += funcionario.salarioFinal;
             contagemF++;
@@ -160,7 +139,6 @@ botaoRelatorio.addEventListener("click", function () {
             contagemG++;
         }
 
-        // compara com o maior/menor encontrados até agora
         if (funcionario.salarioFinal > maiorSalario.salarioFinal) {
             maiorSalario = funcionario;
         }
@@ -168,7 +146,6 @@ botaoRelatorio.addEventListener("click", function () {
             menorSalario = funcionario;
         }
 
-        // verifica em qual faixa de bônus esse funcionário caiu
         if (funcionario.percentualBonus === 0.10) {
             qtdBonus10++;
         } else if (funcionario.percentualBonus === 0.05) {
@@ -183,9 +160,11 @@ botaoRelatorio.addEventListener("click", function () {
 
     let mediaGeral = somaSalarioGeral / totalFuncionarios;
 
-    // se não houver ninguém de uma categoria, evita dividir por zero
     let mediaF = contagemF > 0 ? somaSalarioF / contagemF : 0;
     let mediaG = contagemG > 0 ? somaSalarioG / contagemG : 0;
+
+    let textoMaiorSalario = maiorSalario.codigo + " (" + maiorSalario.categoria + "/" + maiorSalario.turno + ") - R$ " + maiorSalario.salarioFinal.toFixed(2);
+    let textoMenorSalario = menorSalario.codigo + " (" + menorSalario.categoria + "/" + menorSalario.turno + ") - R$ " + menorSalario.salarioFinal.toFixed(2);
 
     campoRelatorio.innerHTML =
         "<h3>Relatório Final</h3>" +
@@ -193,8 +172,8 @@ botaoRelatorio.addEventListener("click", function () {
         "<p>Média salarial geral: R$ " + mediaGeral.toFixed(2) + "</p>" +
         "<p>Média salarial - Operacional (F): R$ " + mediaF.toFixed(2) + "</p>" +
         "<p>Média salarial - Gerente (G): R$ " + mediaG.toFixed(2) + "</p>" +
-        "<p>Maior salário: " + maiorSalario.codigo + " (" + maiorSalario.categoria + "/" + maiorSalario.turno + ") - R$ " + maiorSalario.salarioFinal.toFixed(2) + "</p>" +
-        "<p>Menor salário: " + menorSalario.codigo + " (" + menorSalario.categoria + "/" + menorSalario.turno + ") - R$ " + menorSalario.salarioFinal.toFixed(2) + "</p>" +
+        "<p>Maior salário: " + textoMaiorSalario + "</p>" +
+        "<p>Menor salário: " + textoMenorSalario + "</p>" +
         "<p>Funcionários com bônus de 10%: " + qtdBonus10 + "</p>" +
         "<p>Funcionários com bônus de 5%: " + qtdBonus5 + "</p>" +
         "<p>Funcionários com bônus de 2%: " + qtdBonus2 + "</p>" +
