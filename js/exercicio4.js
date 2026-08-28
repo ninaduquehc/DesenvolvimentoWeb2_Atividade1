@@ -51,14 +51,14 @@ botao.addEventListener("click", function () {
                 nomeTipoQuarto = "Luxo";
                 tipoValido = true;
                 break;
-            case "P":
+            case "P":  
                 multiplicadorQuarto = 2.00;
-                nomeTipoQuarto = "Premium";
+                nomeTipoQuarto = "Premium";            
                 tipoValido = true;
                 break;
             default:
                 tipoQuarto = prompt("Tipo inválido. Digite S (Standard), L (Luxo) ou P (Premium):").toUpperCase();
-                campoTipoQuarto.value = tipoQuarto;
+                campoTipoQuarto.value = tipoQuarto;       
         }
     }
 

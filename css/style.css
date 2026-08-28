@@ -1,0 +1,454 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+:root {
+    --azul-marinho: #0e2033;
+    --linha-grade: rgba(111, 168, 220, 0.07);
+    --azul-painel: #143049;
+    --azul-borda: #2c4c6b;
+    --branco-papel: #f1ecdd;
+    --bege-texto: #e7e2d2;
+    --cinza-azulado: #a9b7c6;
+    --dourado: #e0a458;
+    --azul-claro: #6fa8dc;
+    --vermelho-queimado: #c1584b;
+    --verde-oliva: #7fa66b;
+
+    --fonte-titulo: 'Space Grotesk', sans-serif;
+    --fonte-texto: 'IBM Plex Sans', sans-serif;
+    --fonte-dados: 'IBM Plex Mono', monospace;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: var(--azul-marinho);
+    background-image:
+        repeating-linear-gradient(0deg, var(--linha-grade) 0, var(--linha-grade) 1px, transparent 1px, transparent 32px),
+        repeating-linear-gradient(90deg, var(--linha-grade) 0, var(--linha-grade) 1px, transparent 1px, transparent 32px);
+    color: var(--bege-texto);
+    font-family: var(--fonte-texto);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* cartão central com marcas de canto */
+main {
+    position: relative;
+    width: min(640px, 100% - 2.5rem);
+    margin: 0 auto 3rem;
+    padding: 2.5rem 2.25rem;
+    background: var(--azul-painel);
+    border: 1px solid var(--azul-borda);
+    border-radius: 2px;
+}
+
+main::before,
+main::after {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--dourado);
+    opacity: 0.75;
+}
+
+main::before {
+    top: -8px;
+    left: -8px;
+    border-right: none;
+    border-bottom: none;
+}
+
+main::after {
+    bottom: -8px;
+    right: -8px;
+    border-left: none;
+    border-top: none;
+}
+
+h1 {
+    font-family: var(--fonte-titulo);
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: 0.02em;
+    color: var(--branco-papel);
+    margin: 0 0 0.35rem;
+    padding-bottom: 0.9rem;
+    border-bottom: 1px dashed var(--azul-borda);
+}
+
+h1::after {
+    content: "FICHA DE REGISTRO";
+    display: block;
+    font-family: var(--fonte-dados);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    color: var(--azul-claro);
+    margin-top: 0.5rem;
+}
+
+h3, h4 {
+    font-family: var(--fonte-titulo);
+    color: var(--branco-papel);
+    margin: 1.5rem 0 0.75rem;
+}
+
+h3 {
+    font-size: 1.05rem;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--azul-borda);
+}
+
+h3:first-child {
+    border-top: none;
+    padding-top: 0;
+}
+
+h4 {
+    font-size: 0.85rem;
+    color: var(--azul-claro);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+hr {
+    border: none;
+    border-top: 1px dashed var(--azul-borda);
+    margin: 1.75rem 0;
+}
+
+label {
+    display: block;
+    font-family: var(--fonte-dados);
+    font-size: 0.78rem;
+    color: var(--cinza-azulado);
+    letter-spacing: 0.02em;
+    margin-top: 1.1rem;
+    margin-bottom: 0.35rem;
+}
+
+/* ajusta o espaço deixado pelos <br><br> do HTML */
+main br {
+    display: block;
+    content: "";
+    margin-top: 0.15rem;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 0.55rem 0.7rem;
+    background: var(--azul-marinho);
+    border: 1px solid var(--azul-borda);
+    border-radius: 2px;
+    color: var(--branco-papel);
+    font-family: var(--fonte-dados);
+    font-size: 0.9rem;
+    transition: border-color 0.15s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    outline: none;
+    border-color: var(--azul-claro);
+}
+
+input[type="checkbox"] {
+    width: 1.05rem;
+    height: 1.05rem;
+    accent-color: var(--dourado);
+    vertical-align: middle;
+}
+
+input:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--azul-claro);
+    outline-offset: 2px;
+}
+
+button {
+    font-family: var(--fonte-titulo);
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+    padding: 0.65rem 1.4rem;
+    margin-top: 1.5rem;
+    margin-right: 0.6rem;
+    background: var(--dourado);
+    color: var(--azul-marinho);
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: transform 0.1s ease, background 0.15s ease;
+}
+
+button:hover {
+    background: #eab876;
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+#gerarRelatorio {
+    background: transparent;
+    color: var(--azul-claro);
+    border: 1px solid var(--azul-claro);
+}
+
+#gerarRelatorio:hover {
+    background: rgba(111, 168, 220, 0.1);
+}
+
+/* caixa de resultado com etiqueta "registrado" */
+#resultado {
+    position: relative;
+    margin-top: 1.25rem;
+    padding: 0.9rem 1rem;
+    background: var(--azul-marinho);
+    border: 1px dashed var(--verde-oliva);
+    border-radius: 2px;
+    font-family: var(--fonte-dados);
+    font-size: 0.88rem;
+    color: var(--branco-papel);
+    min-height: 1.2rem;
+}
+
+#resultado:not(:empty)::before {
+    content: "REGISTRADO";
+    display: inline-block;
+    font-family: var(--fonte-dados);
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--verde-oliva);
+    border: 1px solid var(--verde-oliva);
+    padding: 0.1rem 0.4rem;
+    margin-right: 0.6rem;
+    transform: rotate(-2deg);
+}
+
+#relatorio {
+    margin-top: 1rem;
+    font-family: var(--fonte-dados);
+    font-size: 0.85rem;
+}
+
+#relatorio p {
+    margin: 0.4rem 0;
+    padding: 0.5rem 0.7rem;
+    background: var(--azul-marinho);
+    border-left: 2px solid var(--azul-borda);
+}
+
+/* ===== navbar ===== */
+
+.navbar {
+    background: var(--azul-painel);
+    border-bottom: 1px solid var(--azul-borda);
+    margin-bottom: 2.5rem;
+}
+
+.navbar-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0.9rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-family: var(--fonte-titulo);
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+    color: var(--branco-papel);
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.4rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    font-family: var(--fonte-dados);
+    font-size: 0.8rem;
+    color: var(--cinza-azulado);
+    text-decoration: none;
+    padding-bottom: 3px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.nav-links a:hover {
+    color: var(--branco-papel);
+}
+
+.nav-links a.active {
+    color: var(--dourado);
+    border-bottom-color: var(--dourado);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: 1px solid var(--azul-borda);
+    color: var(--branco-papel);
+    font-size: 1.1rem;
+    padding: 0.3rem 0.6rem;
+    margin: 0;
+    cursor: pointer;
+}
+
+.menu-toggle:hover {
+    background: none;
+}
+
+/* ===== footer ===== */
+
+footer {
+    margin-top: 3rem;
+    border-top: 1px solid var(--azul-borda);
+}
+
+.footer-container {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+}
+
+.footer-container p {
+    margin: 0.2rem 0;
+    font-family: var(--fonte-dados);
+    font-size: 0.75rem;
+    color: var(--cinza-azulado);
+    letter-spacing: 0.03em;
+}
+
+.footer-container p:first-child {
+    color: var(--azul-claro);
+}
+
+/* ===== página inicial (index) ===== */
+
+main.home {
+    width: min(960px, 100% - 2.5rem);
+}
+
+main.home h1::after {
+    content: "PAINEL DE EXERCÍCIOS";
+}
+
+.intro {
+    font-family: var(--fonte-texto);
+    font-size: 0.92rem;
+    color: var(--cinza-azulado);
+    max-width: 60ch;
+    margin: 1rem 0 0;
+}
+
+.grid-exercicios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.card-exercicio {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.25rem;
+    background: var(--azul-marinho);
+    border: 1px solid var(--azul-borda);
+    border-radius: 2px;
+    text-decoration: none;
+    color: var(--bege-texto);
+    transition: border-color 0.15s ease, transform 0.1s ease;
+}
+
+.card-exercicio:hover {
+    border-color: var(--dourado);
+    transform: translateY(-2px);
+}
+
+.card-exercicio .numero {
+    font-family: var(--fonte-dados);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    color: var(--dourado);
+}
+
+.card-exercicio h3 {
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-size: 1rem;
+}
+
+.card-exercicio p {
+    margin: 0;
+    font-family: var(--fonte-texto);
+    font-size: 0.82rem;
+    line-height: 1.45;
+    color: var(--cinza-azulado);
+}
+
+
+
+@media (max-width: 640px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        gap: 0.9rem;
+        margin-top: 0.9rem;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .navbar-container {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 0 0 2rem;
+    }
+
+    main {
+        padding: 1.75rem 1.25rem;
+    }
+
+    button {
+        width: 100%;
+        margin-right: 0;
+    }
+}
