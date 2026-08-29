@@ -166,11 +166,50 @@ input[type="number"]:focus {
     border-color: var(--azul-claro);
 }
 
+/* setinhas do input numérico */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 input[type="checkbox"] {
-    width: 1.05rem;
-    height: 1.05rem;
-    accent-color: var(--dourado);
-    vertical-align: middle;
+    appearance: none;
+    -webkit-appearance: none;
+    width: 1.15rem;
+    height: 1.15rem;
+    margin: 0.3rem 0 0;
+    background: var(--azul-marinho);
+    border: 1px solid var(--azul-borda);
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+input[type="checkbox"]:hover {
+    border-color: var(--azul-claro);
+}
+
+input[type="checkbox"]:checked {
+    background: var(--dourado);
+    border-color: var(--dourado);
+}
+
+input[type="checkbox"]:checked::after {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 1px;
+    width: 4px;
+    height: 8px;
+    border: solid var(--azul-marinho);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
 }
 
 input:focus-visible,

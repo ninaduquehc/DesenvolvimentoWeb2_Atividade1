@@ -1,4 +1,3 @@
-// HEADER
 function criarHeader() {
     const header = document.createElement("header");
 
@@ -51,8 +50,6 @@ function criarHeader() {
     document.body.prepend(header);
 }
 
-
-// FOOTER
 function criarFooter() {
     const footer = document.createElement("footer");
 
@@ -63,16 +60,17 @@ function criarFooter() {
             </p>
 
             <p>
-                HTML • CSS • JavaScript
+              2DSM 2026 • Marina Duque de Holanda Cavalcanti
+            </p>
+
+            <p>
+                Desenvolvimento Web 2 • JavaScript
             </p>
         </div>
     `;
 
     document.body.appendChild(footer);
 }
-
-
-// MENU MOBILE
 
 function configurarMenu() {
 
@@ -87,9 +85,6 @@ function configurarMenu() {
         navLinks.classList.toggle("active");
     });
 }
-
-
-// DESTACAR PÁGINA ATUAL
 
 function destacarPaginaAtual() {
 
@@ -107,9 +102,6 @@ function destacarPaginaAtual() {
 
     });
 }
-
-
-// INICIALIZAÇÃO DO LAYOUT
 
 document.addEventListener("DOMContentLoaded", function () {
 

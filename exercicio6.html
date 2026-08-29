@@ -1,11 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Exercício 6 - Vendas e Comissões</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <main>
+        <h1>Exercício 6 - Vendas, Comissões e Metas</h1>
+
+        <label for="metaMensal">Meta mensal de vendas por vendedor (R$):</label>
+        <input type="number" id="metaMensal" step="0.01">
+        <br><br>
+
+        <label for="percentualBase">Percentual base de comissão (ex: 5):</label>
+        <input type="number" id="percentualBase" step="0.01">
+        <br><br>
+
+        <hr>
+
+        <label for="codigoVenda">Código da venda:</label>
+        <input type="text" id="codigoVenda" autocomplete="off">
+        <br><br>
+
+        <label for="codigoVendedor">Código do vendedor:</label>
+        <input type="text" id="codigoVendedor" autocomplete="off">
+        <br><br>
+
+        <label for="regiaoLoja">Região da loja (1-Norte, 2-Nordeste, 3-Sudeste, 4-Sul):</label>
+        <input type="number" id="regiaoLoja">
+        <br><br>
+
+        <label for="valorVenda">Valor da venda:</label>
+        <input type="number" id="valorVenda" step="0.01">
+        <br><br>
+
+        <label for="tipoCliente">Tipo de cliente (PF-Pessoa Física, PJ-Pessoa Jurídica):</label>
+        <input type="text" id="tipoCliente" maxlength="2" autocomplete="off">
+        <br><br>
+
+        <button id="calcular">Calcular</button>
+        <p id="resultado"></p>
+
+        <button id="gerarRelatorio">Gerar Relatório</button>
+        <div id="relatorio"></div>
+    </main>
+
     <script src="js/layout.js"></script>
     <script src="js/exercicio6.js"></script>
 </body>
