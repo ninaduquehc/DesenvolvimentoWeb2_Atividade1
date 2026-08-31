@@ -34,16 +34,13 @@ body {
     padding: 0;
     min-height: 100vh;
     background-color: var(--azul-marinho);
-    background-image:
-        repeating-linear-gradient(0deg, var(--linha-grade) 0, var(--linha-grade) 1px, transparent 1px, transparent 32px),
-        repeating-linear-gradient(90deg, var(--linha-grade) 0, var(--linha-grade) 1px, transparent 1px, transparent 32px);
     color: var(--bege-texto);
     font-family: var(--fonte-texto);
     line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
 }
 
-/* cartão central com marcas de canto */
 main {
     position: relative;
     width: min(640px, 100% - 2.5rem);
@@ -52,30 +49,6 @@ main {
     background: var(--azul-painel);
     border: 1px solid var(--azul-borda);
     border-radius: 2px;
-}
-
-main::before,
-main::after {
-    content: "";
-    position: absolute;
-    width: 18px;
-    height: 18px;
-    border: 2px solid var(--dourado);
-    opacity: 0.75;
-}
-
-main::before {
-    top: -8px;
-    left: -8px;
-    border-right: none;
-    border-bottom: none;
-}
-
-main::after {
-    bottom: -8px;
-    right: -8px;
-    border-left: none;
-    border-top: none;
 }
 
 h1 {
@@ -100,7 +73,8 @@ h1::after {
     margin-top: 0.5rem;
 }
 
-h3, h4 {
+h3,
+h4 {
     font-family: var(--fonte-titulo);
     color: var(--branco-papel);
     margin: 1.5rem 0 0.75rem;
@@ -140,7 +114,6 @@ label {
     margin-bottom: 0.35rem;
 }
 
-/* ajusta o espaço deixado pelos <br><br> do HTML */
 main br {
     display: block;
     content: "";
@@ -166,11 +139,10 @@ input[type="number"]:focus {
     border-color: var(--azul-claro);
 }
 
-/* setinhas do input numérico */
+/* remoção das setas do input numérico */
 input[type="number"] {
     -moz-appearance: textfield;
 }
-
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -212,12 +184,6 @@ input[type="checkbox"]:checked::after {
     transform: rotate(45deg);
 }
 
-input:focus-visible,
-button:focus-visible {
-    outline: 2px solid var(--azul-claro);
-    outline-offset: 2px;
-}
-
 button {
     font-family: var(--fonte-titulo);
     font-weight: 700;
@@ -239,7 +205,7 @@ button:hover {
 }
 
 button:active {
-    transform: translateY(1px);
+    transform: translateY(-1px);
 }
 
 #gerarRelatorio {
@@ -252,7 +218,6 @@ button:active {
     background: rgba(111, 168, 220, 0.1);
 }
 
-/* caixa de resultado com etiqueta "registrado" */
 #resultado {
     position: relative;
     margin-top: 1.25rem;
@@ -277,7 +242,6 @@ button:active {
     border: 1px solid var(--verde-oliva);
     padding: 0.1rem 0.4rem;
     margin-right: 0.6rem;
-    transform: rotate(-2deg);
 }
 
 #relatorio {
@@ -292,8 +256,6 @@ button:active {
     background: var(--azul-marinho);
     border-left: 2px solid var(--azul-borda);
 }
-
-/* ===== navbar ===== */
 
 .navbar {
     background: var(--azul-painel);
@@ -362,11 +324,10 @@ button:active {
     background: none;
 }
 
-/* ===== footer ===== */
-
 footer {
-    margin-top: 3rem;
     border-top: 1px solid var(--azul-borda);
+    background: var(--azul-painel);
+    margin-top: auto;
 }
 
 .footer-container {
@@ -388,8 +349,6 @@ footer {
     color: var(--azul-claro);
 }
 
-/* ===== página inicial (index) ===== */
-
 main.home {
     width: min(960px, 100% - 2.5rem);
 }
@@ -408,7 +367,7 @@ main.home h1::after {
 
 .grid-exercicios {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
     gap: 1rem;
     margin-top: 2rem;
 }
