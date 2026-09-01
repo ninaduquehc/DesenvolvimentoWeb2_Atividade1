@@ -1,5 +1,5 @@
 let campoPreco = document.getElementById("precoCombustivel");
-let campoCodigo = document.getElementById("codigoPedido"); // NOVO
+let campoCodigo = document.getElementById("codigoPedido");
 let campoRegiao = document.getElementById("regiao");
 let campoDistancia = document.getElementById("distancia");
 let campoQuantidade = document.getElementById("quantidadePecas");
@@ -10,7 +10,7 @@ let pedidos = [];
 
 botao.addEventListener("click", function () {
 
-    let codigo = campoCodigo.value.trim(); // NOVO
+    let codigo = campoCodigo.value.trim();
     let preco = Number(campoPreco.value);
     let regiao = Number(campoRegiao.value);
     let distancia = Number(campoDistancia.value);

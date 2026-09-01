@@ -7,8 +7,8 @@ let campoDesempenho = document.getElementById("desempenho");
 let botao = document.getElementById("calcular");
 let resultado = document.getElementById("resultado");
 
-let campoRelatorio = document.getElementById("relatorio"); // ################ NOVO ################
-let botaoRelatorio = document.getElementById("gerarRelatorio"); // ################ NOVO ################
+let campoRelatorio = document.getElementById("relatorio");
+let botaoRelatorio = document.getElementById("gerarRelatorio");
 
 let funcionarios = [];
 
